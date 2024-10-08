@@ -1,0 +1,34 @@
+def amt(X,R):
+    years=int(input("Enter the duration (in years) of the investment:"))
+    for i in range(years):
+      X=R*X
+    print(f"The value of investment after {years} years is {X:.2f}")
+
+def duration(X,R):
+  Z=int(input("Enter the amount that you expect to be returned:"))
+  tot_years=0
+  while(X<Z):
+      X=R*X
+      tot_years=tot_years+1
+      if tot_years>100:
+         tot_years="is more than 100"
+         break
+  print(f"The total years taken to ge the amount is {tot_years}")
+   
+    
+
+principal_amount=float(input("Enter Principal amount of investment:"))
+interest=float(input("Enter the rate of interest(exclude the '%' symbol):"))
+print("-------------------------------\nEnter '1' if you want to find value of investment after a cetain year")
+operation=int(input("Enter '2' if you want to find how many years it'll take for you to recover an amount:"))
+print("-------------------------------")
+r=(interest/100)
+R=(1+r)
+X=principal_amount
+if operation == 1:
+   amt(X,R)
+elif operation == 2:
+   duration(X,R)
+else:
+   print("Please choose only out of the above two options")
+
